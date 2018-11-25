@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "github.com/sensu/sensu-go/api/core/v2//event.proto";
+import "github.com/sensu/sensu-go/api/core/v2/event.proto";
 
 package sensu.rpc;
 

@@ -93,7 +93,7 @@ func TestBadSessionConfig(t *testing.T) {
 	st.On(
 		"UpdateEntity",
 		mock.Anything,
-		mock.AnythingOfType("*types.Entity"),
+		mock.AnythingOfType("*v2.Entity"),
 	).Return(nil)
 	st.On(
 		"GetNamespace",

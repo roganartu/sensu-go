@@ -38,7 +38,7 @@ func TestRegisterCommandRunEClosureWithAllFlags(t *testing.T) {
 
 	cli := test.NewMockCLI()
 	client := cli.Client.(*client.MockClient)
-	client.On("RegisterExtension", mock.AnythingOfType("*types.Extension")).Return(nil)
+	client.On("RegisterExtension", mock.AnythingOfType("*v2.Extension")).Return(nil)
 
 	cmd := RegisterCommand(cli)
 	out, err := test.RunCmd(cmd, []string{"frobber", "http://localhost"})
@@ -52,7 +52,7 @@ func TestRegisterCommandRunEClosureWithServerErr(t *testing.T) {
 
 	cli := test.NewMockCLI()
 	client := cli.Client.(*client.MockClient)
-	client.On("RegisterExtension", mock.AnythingOfType("*types.Extension")).Return(errors.New("whoops"))
+	client.On("RegisterExtension", mock.AnythingOfType("*v2.Extension")).Return(errors.New("whoops"))
 
 	cmd := RegisterCommand(cli)
 	out, err := test.RunCmd(cmd, []string{"frobber", "http://localhost"})

@@ -10,11 +10,11 @@ import (
 	"testing"
 
 	"github.com/gorilla/mux"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/sensu/sensu-go/backend/apid/actions"
 	"github.com/sensu/sensu-go/testing/mockqueue"
 	"github.com/sensu/sensu-go/testing/mockstore"
 	"github.com/sensu/sensu-go/testing/testutil"
-	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/stretchr/testify/mock"
 )
 
@@ -76,7 +76,7 @@ func TestPostCheck(t *testing.T) {
 	client := new(http.Client)
 
 	check := types.FixtureCheckConfig("check1")
-	controller.On("Create", mock.Anything, mock.AnythingOfType("types.CheckConfig")).Return(nil)
+	controller.On("Create", mock.Anything, mock.AnythingOfType("v2.CheckConfig")).Return(nil)
 	b, _ := json.Marshal(check)
 	body := bytes.NewReader(b)
 	endpoint := "/checks"
@@ -104,7 +104,7 @@ func TestPutCheck(t *testing.T) {
 
 	client := new(http.Client)
 
-	controller.On("CreateOrReplace", mock.Anything, mock.AnythingOfType("types.CheckConfig")).Return(nil)
+	controller.On("CreateOrReplace", mock.Anything, mock.AnythingOfType("v2.CheckConfig")).Return(nil)
 	b, _ := json.Marshal(types.FixtureCheckConfig("check1"))
 	body := bytes.NewReader(b)
 	endpoint := "/checks/check1"
@@ -120,7 +120,7 @@ func TestPutCheck(t *testing.T) {
 		t.Fatalf("bad status: %d (%q)", resp.StatusCode, string(body))
 	}
 
-	controller.AssertCalled(t, "CreateOrReplace", mock.Anything, mock.AnythingOfType("types.CheckConfig"))
+	controller.AssertCalled(t, "CreateOrReplace", mock.Anything, mock.AnythingOfType("v2.CheckConfig"))
 }
 
 func TestGetCheck(t *testing.T) {
@@ -195,7 +195,7 @@ func TestPutCheckHook(t *testing.T) {
 	client := new(http.Client)
 
 	fixture := types.FixtureHookList("hook1")
-	controller.On("AddCheckHook", mock.Anything, mock.Anything, mock.AnythingOfType("types.HookList")).Return(nil)
+	controller.On("AddCheckHook", mock.Anything, mock.Anything, mock.AnythingOfType("v2.HookList")).Return(nil)
 	b, _ := json.Marshal(fixture)
 	body := bytes.NewReader(b)
 	endpoint := "/checks/check1/hooks/non-zero"
@@ -211,7 +211,7 @@ func TestPutCheckHook(t *testing.T) {
 		t.Fatalf("bad status: %d (%q)", resp.StatusCode, string(body))
 	}
 
-	controller.AssertCalled(t, "AddCheckHook", mock.Anything, mock.Anything, mock.AnythingOfType("types.HookList"))
+	controller.AssertCalled(t, "AddCheckHook", mock.Anything, mock.Anything, mock.AnythingOfType("v2.HookList"))
 }
 
 func TestDeleteCheckHook(t *testing.T) {

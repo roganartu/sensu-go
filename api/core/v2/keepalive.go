@@ -1,4 +1,4 @@
-package types
+package v2
 
 // DefaultKeepaliveTimeout specifies the default keepalive timeout
 const DefaultKeepaliveTimeout = 120

@@ -1,4 +1,4 @@
-package types
+package v2
 
 import (
 	"bytes"
@@ -11,9 +11,9 @@ import (
 // contents.
 type Wrapper struct {
 	// Type is the fully-qualified type name, e.g.
-	// github.com/sensu/sensu-go/types.Check,
+	// github.com/sensu/sensu-go/api/core/v2.Check,
 	// OR, a short-hand name that assumes a package path of
-	// github.com/sensu/sensu-go/types.
+	// github.com/sensu/sensu-go/api/core/v2.
 	Type string `json:"type" yaml:"type"`
 
 	// Value is a valid Resource of concrete type Type.

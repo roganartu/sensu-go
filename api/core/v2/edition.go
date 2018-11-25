@@ -1,4 +1,4 @@
-package types
+package v2
 
 const (
 	// CoreEdition represents the Sensu Core Edition (CE)

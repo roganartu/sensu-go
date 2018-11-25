@@ -1,4 +1,4 @@
-package types
+package v2
 
 // Resource represents a Sensu resource.
 type Resource interface {

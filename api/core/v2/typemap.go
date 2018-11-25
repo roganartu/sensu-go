@@ -1,4 +1,4 @@
-package types
+package v2
 
 // automatically generated file, do not edit!
 

@@ -1,4 +1,4 @@
-package types
+package v2
 
 // AgentHandshakeType is the message type string for an AgentHandshake
 const AgentHandshakeType = "agent_handshake"

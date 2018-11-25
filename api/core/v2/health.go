@@ -1,4 +1,4 @@
-package types
+package v2
 
 import (
 	"github.com/coreos/etcd/etcdserver/etcdserverpb"

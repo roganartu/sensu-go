@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // These values are baked into the sensu-agent and sensu-backend binaries

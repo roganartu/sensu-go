@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // NagiosList contains a list of Nagios metrics

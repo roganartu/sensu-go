@@ -9,7 +9,7 @@ import (
 	"github.com/sensu/sensu-go/backend/messaging"
 	"github.com/sensu/sensu-go/backend/monitor"
 	"github.com/sensu/sensu-go/backend/store"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 const (

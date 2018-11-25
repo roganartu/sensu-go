@@ -3,7 +3,7 @@ package graphql
 import (
 	"github.com/sensu/sensu-go/backend/apid/graphql/schema"
 	"github.com/sensu/sensu-go/graphql"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 var _ schema.MutatorFieldResolvers = (*mutatorImpl)(nil)

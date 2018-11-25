@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/url"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // AddGroupToUser makes "username" a member of "group".

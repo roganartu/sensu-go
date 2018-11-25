@@ -10,7 +10,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/sensu/sensu-go/backend/authentication/jwt"
 	"github.com/sensu/sensu-go/backend/authorization"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // AuthorizationAttributes is an HTTP middleware that populates a context for the

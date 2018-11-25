@@ -7,7 +7,7 @@ import (
 	"github.com/AlecAivazis/survey"
 	"github.com/robfig/cron"
 	"github.com/sensu/sensu-go/cli/commands/helpers"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/spf13/pflag"
 )
 

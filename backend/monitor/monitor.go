@@ -3,7 +3,7 @@ package monitor
 import (
 	"time"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // Interface is the monitor interface.

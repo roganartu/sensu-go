@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/sensu/sensu-go/backend/apid/actions"
 	"github.com/sensu/sensu-go/backend/store"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // UsersRouter handles requests for /users

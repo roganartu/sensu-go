@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/sensu/sensu-go/backend/apid/graphql/schema"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // clampInt returns int within given range.

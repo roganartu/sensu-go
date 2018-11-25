@@ -6,7 +6,7 @@ import (
 	"net/url"
 
 	"github.com/gorilla/websocket"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // connect establish the connection to a given websocket backend and returns it

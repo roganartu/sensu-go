@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/sensu/sensu-go/testing/mockstore"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,6 +1,6 @@
 package agent
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // A Transformer handles transforming Sensu metrics to other output metric formats
 type Transformer interface {

@@ -6,7 +6,7 @@ import (
 
 	time "github.com/echlebek/timeproxy"
 	"github.com/sensu/sensu-go/backend/messaging"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // roundRobinMessage is a combination of a check request and a subscription

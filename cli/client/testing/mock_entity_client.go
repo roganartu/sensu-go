@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // ListEntities for use with mock lib
 func (c *MockClient) ListEntities(namespace string) ([]types.Entity, error) {

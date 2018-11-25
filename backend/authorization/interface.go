@@ -3,7 +3,7 @@ package authorization
 import (
 	"context"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // Authorizer determines whether a request is authorized using the Attributes

@@ -2,8 +2,8 @@ package asset
 
 import (
 	"github.com/sensu/sensu-go/js"
-	"github.com/sensu/sensu-go/types"
-	"github.com/sensu/sensu-go/types/dynamic"
+	types "github.com/sensu/sensu-go/api/core/v2"
+	"github.com/sensu/sensu-go/api/core/v2/dynamic"
 	"github.com/sirupsen/logrus"
 )
 

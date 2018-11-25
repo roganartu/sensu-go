@@ -1,7 +1,7 @@
 package testing
 
 import (
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // ListHandlers for use with mock package

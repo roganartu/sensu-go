@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // CreateMutator for use with mock package
 func (c *MockClient) CreateMutator(m *types.Mutator) error {

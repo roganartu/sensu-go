@@ -3,7 +3,7 @@ package extension
 import (
 	"errors"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // ErrNotImplemented is returned by extension methods that haven't been

@@ -3,7 +3,7 @@ package agent
 import (
 	"time"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 func (a *Agent) getAgentEntity() *types.Entity {

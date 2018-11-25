@@ -6,7 +6,7 @@ import (
 	"github.com/graphql-go/graphql"
 	"github.com/sensu/sensu-go/backend/apid/graphql/globalid"
 	"github.com/sensu/sensu-go/backend/apid/graphql/schema"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/sensu/sensu-go/util/strings"
 )
 

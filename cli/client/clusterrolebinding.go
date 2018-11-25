@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 const clusterRoleBindingsBasePath = "/apis/rbac/v2/clusterrolebindings"

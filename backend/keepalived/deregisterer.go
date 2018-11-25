@@ -6,7 +6,7 @@ import (
 
 	"github.com/sensu/sensu-go/backend/messaging"
 	"github.com/sensu/sensu-go/backend/store"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // A Deregisterer provides a mechanism for deregistering entities and

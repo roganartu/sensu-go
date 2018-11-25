@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // addEntitySubscription appends the entity subscription (using the format

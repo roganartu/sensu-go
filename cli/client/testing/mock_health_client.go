@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 func (c *MockClient) Health() (*types.HealthResponse, error) {
 	args := c.Called()

@@ -6,7 +6,7 @@ import (
 
 	"github.com/sensu/sensu-go/cli/client"
 	"github.com/sensu/sensu-go/cli/client/config/inmemory"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // CRUFT: Avoid having the client error by setting expire in the far future

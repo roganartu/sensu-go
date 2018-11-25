@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // ListAssets for use with mock lib
 func (c *MockClient) ListAssets(namespace string) ([]types.Asset, error) {

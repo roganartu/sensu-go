@@ -2,7 +2,7 @@ package backend
 
 import (
 	"github.com/sensu/sensu-go/backend/etcd"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 const (

@@ -11,7 +11,7 @@ import (
 	"github.com/sensu/sensu-go/cli/commands/timeutil"
 	"github.com/sensu/sensu-go/cli/elements/globals"
 	"github.com/sensu/sensu-go/cli/elements/list"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/spf13/cobra"
 )
 

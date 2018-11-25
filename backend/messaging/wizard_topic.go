@@ -9,7 +9,7 @@ import (
 	"github.com/sensu/sensu-go/backend/ring"
 	"github.com/sensu/sensu-go/util/retry"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // wizardTopic encapsulates state around a WizardBus topic and its

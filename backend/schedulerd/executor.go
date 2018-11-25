@@ -9,7 +9,7 @@ import (
 	time "github.com/echlebek/timeproxy"
 	"github.com/sensu/sensu-go/backend/messaging"
 	"github.com/sensu/sensu-go/backend/store"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/sirupsen/logrus"
 )
 

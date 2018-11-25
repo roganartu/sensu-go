@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 const (

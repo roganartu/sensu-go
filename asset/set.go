@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // RuntimeAssetSet is a set of runtime assets.

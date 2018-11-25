@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-import "github.com/sensu/sensu-go/types/event.proto";
+import "github.com/sensu/sensu-go/api/core/v2//event.proto";
 
 package sensu.rpc;
 
 option go_package = "rpc";
 
 message HandleEventRequest {
-  types.Event event = 1;
+  sensu.api.core.v2.Event event = 1;
   bytes mutated_event = 2;
 }
 
@@ -17,7 +17,7 @@ message HandleEventResponse {
 }
 
 message MutateEventRequest {
-  types.Event event = 1;
+  sensu.api.core.v2.Event event = 1;
 }
 
 message MutateEventResponse {
@@ -26,7 +26,7 @@ message MutateEventResponse {
 }
 
 message FilterEventRequest {
-  types.Event event = 1;
+  sensu.api.core.v2.Event event = 1;
 }
 
 message FilterEventResponse {

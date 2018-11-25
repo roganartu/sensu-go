@@ -9,8 +9,8 @@ import (
 	"github.com/sensu/sensu-go/backend/apid/graphql/schema"
 	"github.com/sensu/sensu-go/graphql"
 	"github.com/sensu/sensu-go/js"
-	"github.com/sensu/sensu-go/types"
-	"github.com/sensu/sensu-go/types/dynamic"
+	types "github.com/sensu/sensu-go/api/core/v2"
+	"github.com/sensu/sensu-go/api/core/v2/dynamic"
 	string_utils "github.com/sensu/sensu-go/util/strings"
 )
 

@@ -2,7 +2,7 @@ package etcd
 
 import (
 	"github.com/sensu/sensu-go/backend/ring"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // GetRing gets a named Ring.

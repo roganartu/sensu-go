@@ -7,7 +7,7 @@ import (
 
 	bolt "go.etcd.io/bbolt"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 var (

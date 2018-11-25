@@ -10,7 +10,7 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 	time "github.com/echlebek/timeproxy"
 	"github.com/sensu/sensu-go/backend/store"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	utilbytes "github.com/sensu/sensu-go/util/bytes"
 )
 

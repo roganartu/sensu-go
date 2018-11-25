@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/sensu/sensu-go/types"
-	"github.com/sensu/sensu-go/types/v1"
+	types "github.com/sensu/sensu-go/api/core/v2"
+	"github.com/sensu/sensu-go/api/core/v2/v1"
 )
 
 // prepareEvent accepts a partial or complete event and tries to add any missing

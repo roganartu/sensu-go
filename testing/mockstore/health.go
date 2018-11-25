@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 
 	"github.com/coreos/etcd/clientv3"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // GetClusterHealth ...

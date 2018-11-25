@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // FetchEvent for use with mock lib
 func (c *MockClient) FetchEvent(entity, check string) (*types.Event, error) {

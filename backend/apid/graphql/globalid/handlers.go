@@ -1,6 +1,6 @@
 package globalid
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 //
 // Handler

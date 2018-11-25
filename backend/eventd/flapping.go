@@ -1,6 +1,6 @@
 package eventd
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // isFlapping determines if the check is flapping, based on the TotalStateChange
 // and configured thresholds

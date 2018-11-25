@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // ListExtensions ...
 func (c *MockClient) ListExtensions(namespace string) ([]types.Extension, error) {

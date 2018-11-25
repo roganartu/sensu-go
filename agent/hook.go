@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/sensu/sensu-go/command"
-	"github.com/sensu/sensu-go/types"
-	"github.com/sensu/sensu-go/types/dynamic"
+	types "github.com/sensu/sensu-go/api/core/v2"
+	"github.com/sensu/sensu-go/api/core/v2/dynamic"
 )
 
 // ExecuteHooks executes all hooks contained in a check request based on

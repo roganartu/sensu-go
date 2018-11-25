@@ -12,7 +12,7 @@ import (
 	"github.com/sensu/sensu-go/backend/store"
 	"github.com/sensu/sensu-go/command"
 	"github.com/sensu/sensu-go/rpc"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/sensu/sensu-go/util/environment"
 	utillogging "github.com/sensu/sensu-go/util/logging"
 	"github.com/sirupsen/logrus"

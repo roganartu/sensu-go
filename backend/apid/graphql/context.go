@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/sensu/sensu-go/backend/apid/graphql/globalid"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // setContextFromComponents takes a context and global id components, adds the

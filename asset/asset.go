@@ -15,7 +15,7 @@ package asset
 import (
 	"path/filepath"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 const (

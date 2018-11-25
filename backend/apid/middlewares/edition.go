@@ -3,7 +3,7 @@ package middlewares
 import (
 	"net/http"
 
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // Edition is an HTTP middleware that provides the Sensu Edition through a header

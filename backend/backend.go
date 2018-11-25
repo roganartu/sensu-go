@@ -29,7 +29,7 @@ import (
 	etcdstore "github.com/sensu/sensu-go/backend/store/etcd"
 	"github.com/sensu/sensu-go/rpc"
 	"github.com/sensu/sensu-go/system"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // Backend represents the backend server, which is used to hold the datastore

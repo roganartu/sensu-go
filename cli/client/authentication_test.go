@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-resty/resty"
 	config "github.com/sensu/sensu-go/cli/client/testing"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/stretchr/testify/assert"
 )
 

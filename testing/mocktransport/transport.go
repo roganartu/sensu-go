@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/sensu/sensu-go/transport"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/stretchr/testify/mock"
 )
 

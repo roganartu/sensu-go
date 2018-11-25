@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/coreos/etcd/clientv3"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 // getObjectsPath functions take a context and an object name and return

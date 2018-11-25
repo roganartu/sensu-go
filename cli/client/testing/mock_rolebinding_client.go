@@ -1,6 +1,6 @@
 package testing
 
-import "github.com/sensu/sensu-go/types"
+import types "github.com/sensu/sensu-go/api/core/v2"
 
 // CreateRoleBinding ...
 func (c *MockClient) CreateRoleBinding(obj *types.RoleBinding) error {

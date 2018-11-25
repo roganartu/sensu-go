@@ -11,7 +11,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/sensu/sensu-go/agent"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 	"github.com/sensu/sensu-go/util/path"
 )
 

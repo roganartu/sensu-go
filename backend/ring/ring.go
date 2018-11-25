@@ -14,7 +14,7 @@ import (
 	"github.com/coreos/etcd/clientv3/concurrency"
 	"github.com/sensu/sensu-go/backend/etcd"
 	"github.com/sensu/sensu-go/backend/store"
-	"github.com/sensu/sensu-go/types"
+	types "github.com/sensu/sensu-go/api/core/v2"
 )
 
 var (

@@ -6,9 +6,9 @@ import "hook.proto";
 import "meta.proto";
 import "time_window.proto";
 
-package sensu.types;
+package sensu.api.core.v2;
 
-option go_package = "types";
+option go_package = "v2";
 option (gogoproto.populate_all) = true;
 option (gogoproto.equal_all) = true;
 option (gogoproto.marshaler_all) = true;

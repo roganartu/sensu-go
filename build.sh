@@ -124,7 +124,7 @@ build_agent() {
 }
 
 build_backend() {
-    build_dashboard $@
+    #build_dashboard $@
     build_command backend $@
 }
 

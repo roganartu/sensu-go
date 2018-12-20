@@ -175,23 +175,20 @@ func newStartCommand() *cobra.Command {
 			trustedCAFile := viper.GetString(flagTrustedCAFile)
 			insecureSkipTLSVerify := viper.GetBool(flagInsecureSkipTLSVerify)
 
-			if certFile != "" && keyFile != "" && trustedCAFile != "" {
+			if certFile != "" && keyFile != "" {
 				cfg.TLS = &types.TLSOptions{
 					CertFile:           certFile,
 					KeyFile:            keyFile,
 					TrustedCAFile:      trustedCAFile,
 					InsecureSkipVerify: insecureSkipTLSVerify,
 				}
-			} else if certFile != "" || keyFile != "" || trustedCAFile != "" {
+			} else if certFile != "" || keyFile != "" {
 				emptyFlags := []string{}
 				if certFile == "" {
 					emptyFlags = append(emptyFlags, flagCertFile)
 				}
 				if keyFile == "" {
 					emptyFlags = append(emptyFlags, flagKeyFile)
-				}
-				if trustedCAFile == "" {
-					emptyFlags = append(emptyFlags, flagTrustedCAFile)
 				}
 
 				return fmt.Errorf("missing the following cert flags: %s", emptyFlags)
@@ -260,7 +257,7 @@ func newStartCommand() *cobra.Command {
 	viper.SetDefault(deprecatedFlagAPIHost, "[::]")
 	viper.SetDefault(deprecatedFlagAPIPort, 8080)
 	viper.SetDefault(flagAPIListenAddress, "[::]:8080")
-	viper.SetDefault(flagAPIURL, "http://localhost:8080")
+	viper.SetDefault(flagAPIURL, "https://localhost:3000")
 	viper.SetDefault(flagDashboardHost, "[::]")
 	viper.SetDefault(flagDashboardPort, 3000)
 	viper.SetDefault(flagDeregistrationHandler, "")

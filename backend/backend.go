@@ -224,10 +224,14 @@ func Initialize(config *Config) (*Backend, error) {
 
 	// Initialize dashboardd
 	dashboard, err := dashboardd.New(dashboardd.Config{
-		APIURL: config.APIURL,
-		Host:   config.DashboardHost,
-		Port:   config.DashboardPort,
-		TLS:    config.TLS,
+		ListenAddress:       fmt.Sprintf("%s:%d", config.DashboardHost, config.DashboardPort),
+		URL:                 config.APIURL,
+		Bus:                 bus,
+		Store:               store,
+		QueueGetter:         queueGetter,
+		TLS:                 config.TLS,
+		Cluster:             clientv3.NewCluster(b.Client),
+		EtcdClientTLSConfig: etcdClientTLSConfig,
 	})
 	if err != nil {
 		return nil, fmt.Errorf("error initializing %s: %s", dashboard.Name(), err)

@@ -2,11 +2,9 @@ package dashboardd
 
 import (
 	"compress/gzip"
+	"crypto/tls"
 	"fmt"
-	"net"
 	"net/http"
-	"net/http/httputil"
-	"net/url"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -14,19 +12,13 @@ import (
 
 	"github.com/NYTimes/gziphandler"
 	"github.com/gorilla/mux"
+	"github.com/sensu/sensu-go/backend/apid"
 	"github.com/sensu/sensu-go/dashboard"
-	"github.com/sensu/sensu-go/types"
 	"github.com/sirupsen/logrus"
 )
 
 // Config represents the dashboard configuration
-type Config struct {
-	Host string
-	Port int
-	TLS  *types.TLSOptions
-
-	APIURL string
-}
+type Config apid.Config
 
 // Dashboardd represents the dashboard daemon
 type Dashboardd struct {
@@ -43,17 +35,27 @@ type Dashboardd struct {
 type Option func(*Dashboardd) error
 
 // New creates a new Dashboardd.
-func New(cfg Config, opts ...Option) (*Dashboardd, error) {
+func New(c Config, opts ...Option) (*Dashboardd, error) {
 	d := &Dashboardd{
-		Config:   cfg,
+		Config:   c,
 		stopping: make(chan struct{}, 1),
 		running:  &atomic.Value{},
 		wg:       &sync.WaitGroup{},
 		errChan:  make(chan error, 1),
 	}
+
+	var tlsConfig *tls.Config
+	if c.TLS != nil {
+		cfg, err := c.TLS.ToTLSConfig()
+		if err != nil {
+			return nil, err
+		}
+		tlsConfig = cfg
+	}
+
 	d.httpServer = &http.Server{
-		Addr:         fmt.Sprintf("%s:%d", d.Host, d.Port),
-		Handler:      httpRouter(d),
+		Addr:         c.ListenAddress,
+		Handler:      httpRouter(d, tlsConfig),
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
@@ -123,22 +125,11 @@ func (d *Dashboardd) Name() string {
 	return "dashboardd"
 }
 
-func httpRouter(d *Dashboardd) *mux.Router {
-	r := mux.NewRouter()
+func httpRouter(d *Dashboardd, tlsConfig *tls.Config) *mux.Router {
+	apidMux := apid.NewMux(apid.Config(d.Config), tlsConfig)
+	apidMux.PathPrefix("/").Handler(assetsHandler())
 
-	backendProxy, err := newBackendProxy(d.Config.APIURL, d.Config.TLS)
-	if err != nil {
-		d.errChan <- err
-	}
-
-	// Proxy endpoints
-	r.PathPrefix("/auth").Handler(backendProxy)
-	r.PathPrefix("/graphql").Handler(backendProxy)
-
-	// Serve assets
-	r.PathPrefix("/").Handler(assetsHandler())
-
-	return r
+	return apidMux
 }
 
 func assetsHandler() http.Handler {
@@ -195,41 +186,4 @@ func noCacheHandler(next http.Handler) http.Handler {
 		w.Header().Set("expires", "0")
 		next.ServeHTTP(w, r)
 	})
-}
-
-func newBackendProxy(APIURL string, TLS *types.TLSOptions) (*httputil.ReverseProxy, error) {
-	// API gateway to Sensu API
-	target, err := url.Parse(APIURL)
-	if err != nil {
-		return nil, err
-	}
-
-	// Copy of values from http.DefaultTransport
-	transport := &http.Transport{
-		Proxy: http.ProxyFromEnvironment,
-		DialContext: (&net.Dialer{
-			Timeout:   30 * time.Second,
-			KeepAlive: 30 * time.Second,
-			DualStack: true,
-		}).DialContext,
-		MaxIdleConns:          100,
-		IdleConnTimeout:       90 * time.Second,
-		TLSHandshakeTimeout:   10 * time.Second,
-		ExpectContinueTimeout: 1 * time.Second,
-	}
-
-	// Configure TLS
-	if TLS != nil {
-		cfg, err := TLS.ToTLSConfig()
-		if err != nil {
-			return nil, err
-		}
-		// TODO(palourde): We should avoid using the loopback interface
-		cfg.InsecureSkipVerify = true
-		transport.TLSClientConfig = cfg
-	}
-
-	proxy := httputil.NewSingleHostReverseProxy(target)
-	proxy.Transport = transport
-	return proxy, nil
 }

@@ -70,24 +70,15 @@ func New(c Config, opts ...Option) (*APId, error) {
 	var tlsConfig *tls.Config
 	var err error
 	if c.TLS != nil {
-		// TODO(palourde): We should avoid using the loopback interface
-		c.TLS.InsecureSkipVerify = true
 		tlsConfig, err = c.TLS.ToTLSConfig()
 		if err != nil {
 			return nil, err
 		}
 	}
 
-	router := mux.NewRouter().UseEncodedPath()
-	router.NotFoundHandler = middlewares.SimpleLogger{}.Then(http.HandlerFunc(notFoundHandler))
-	registerUnauthenticatedResources(router, a.store, a.cluster, a.etcdClientTLSConfig)
-	registerGraphQLService(router, a.store, c.URL, tlsConfig)
-	registerAuthenticationResources(router, a.store)
-	registerRestrictedResources(router, a.store, a.queueGetter, a.bus, a.cluster)
-
 	a.HTTPServer = &http.Server{
 		Addr:         c.ListenAddress,
-		Handler:      router,
+		Handler:      NewMux(c, tlsConfig),
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
@@ -99,6 +90,18 @@ func New(c Config, opts ...Option) (*APId, error) {
 	}
 
 	return a, nil
+}
+
+// NewMux creates a new apid mux.
+func NewMux(c Config, tlsConfig *tls.Config) *mux.Router {
+	router := mux.NewRouter().UseEncodedPath()
+	router.NotFoundHandler = middlewares.SimpleLogger{}.Then(http.HandlerFunc(notFoundHandler))
+	registerUnauthenticatedResources(router, c.Store, c.Cluster, c.EtcdClientTLSConfig)
+	registerGraphQLService(router, c.Store, c.URL, tlsConfig)
+	registerAuthenticationResources(router, c.Store)
+	registerRestrictedResources(router, c.Store, c.QueueGetter, c.Bus, c.Cluster)
+
+	return router
 }
 
 func notFoundHandler(w http.ResponseWriter, req *http.Request) {

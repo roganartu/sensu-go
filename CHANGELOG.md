@@ -7,6 +7,9 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Added
+- Web UI - support for labels and annotations
+
 ## [5.2.0] - 2019-02-06
 
 ### Added
